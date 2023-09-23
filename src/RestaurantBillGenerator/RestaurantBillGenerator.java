@@ -31,6 +31,9 @@ Proje: Restaurant Fiş Üretme Uygulaması(BillGenerator)
     private static void getSelectionMenu() {
         DishService ds=new DishService();
         Scanner scan=new Scanner(System.in);
+        //7-servis objelerini oluşturalım
+        DishService dishService=new DishService();//listeye yemekler eklendi
+        OrderService orderService=new OrderService();
         int select=-1;
         while(select!=0){
             System.out.println("-".repeat(30));
@@ -49,10 +52,13 @@ Proje: Restaurant Fiş Üretme Uygulaması(BillGenerator)
                     ds.showMenu();
                     break;
                 case 2:
+                    orderService.createOrder(dishService);
                     break;
                 case 3:
+                    orderService.cancelOrder(dishService);
                     break;
                 case 4:
+                    orderService.printBill();
                     break;
                 case 0:
                     System.out.println("İyi Günler");
